@@ -85,7 +85,6 @@ def get_filters():
 def load_data(city, month, day):
     month=month.lower()
     day=day.lower()
-    city=city
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
