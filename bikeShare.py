@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 
 import time
 import pandas as pd
@@ -245,7 +239,6 @@ def user_stats(df,city):
     print('-'*40)
 
 
-
 def main():
     while True:
         city, month, day = get_filters()
@@ -260,13 +253,14 @@ def main():
         if restart.lower() != 'yes':
             break
 
-main()
+
+if __name__ == "__main__":
+	main()
 
 
 
 
 
-# In[ ]:
 
 
 
