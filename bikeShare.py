@@ -16,8 +16,8 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     print('Would you like to see data for chicago, New York, or Washington?')
-    city=input()
-    while(city.lower() not in ['chicago', 'new york' , 'washington']):
+    city=input().lower()
+    while(city not in ['chicago', 'new york' , 'washington']):
         print('invalid input, Would you like to see data for chicago, New York, or Washington?')
         print('If you want to exit Enter exit')
         city=input()
@@ -85,7 +85,7 @@ def get_filters():
 def load_data(city, month, day):
     month=month.lower()
     day=day.lower()
-    city=city.lower()
+    city=city
     # load data file into a dataframe
     df = pd.read_csv(CITY_DATA[city])
 
@@ -181,9 +181,9 @@ def station_stats(df):
     print('------------------------------******************************************************************************')
 
     # display most frequent combination of start station and end station trip
-
-    mostCommonCombination=df[['Start Station','End Station']].mode().loc[0]
-    countOfMostCommonCombination=df[['Start Station','End Station']].value_counts().max()
+    data = df[["Start Station", "End Station"]].copy()
+    mostCommonCombination= data.mode().iloc[0]
+    countOfMostCommonCombination=data.value_counts().max()
     print("Start Station      :  "+mostCommonCombination[0])
     print("End Station        :  "+mostCommonCombination[1])
     print(countOfMostCommonCombination)
@@ -256,11 +256,6 @@ def main():
 
 if __name__ == "__main__":
 	main()
-
-
-
-
-
 
 
 
